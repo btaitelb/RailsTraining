@@ -1,0 +1,17 @@
+Grab the latest version:  git pull origin master
+
+*Pro Tip*: commit your changes along the way so you can rollback if you
+make a mistake.
+
+To commit:
+
+git status
+git add <list of files to check in>
+git commit -m 'quick message describing changes'
+
+To roll back:
+
+git log --oneline
+git reset --hard <commit-id of last good commit>
+
+('q' to exit out of "git log")
