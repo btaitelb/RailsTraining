@@ -1,0 +1,51 @@
+Lab 3 - Ruby Bootcamp
+=====================
+
+In this lab, we're exploring the ruby language itself, without any
+rails. We'll learn the syntax, fundamental concepts like arrays,
+blocks and objects, and will develop a library that we're going to use
+later in our rails app.
+
+Pre-Lab
+-------
+
+* Slides 46-61
+* Ruby classes in animal.rb
+
+
+Part I - Weather Model
+----------------------
+
+1. Run the tests in weather_tests.rb
+2. What's failing? Look at the code for the failing tests.
+3. Implement the missing functionality in weather.rb so that the tests
+   pass.
+
+
+Part II - Weather Service
+-------------------------
+
+You've been provided the file weather_service.rb that's gets weather
+data from openweathermap.org. We want to take that data and convert it
+into our Weather object, but currently the "weather" method isn't
+returning the results we want.
+
+By default, if you instantiate the WeatherService without any
+constructor arguments, then it will be in debug mode. This is what we
+want, so that it doesn't contact the API. Otherwise, we might go over
+our rate limit.
+
+1. Take a look at the code in weather_service.rb. What does it do?
+2. Create a new file weather_service_tests.rb and write some tests for
+the weather method. These tests should fail to indicate where our
+method is broken.
+3. Fix the weather method so that the tests pass.
+4. Show the instructor your passing tests, and get the API key.
+5. Test against the actual weather service.
+
+
+Post-Lab
+--------
+
+- Commit your code changes
+- Discussion: How are you feeling about ruby? What do you like / dislike / find confusing?
