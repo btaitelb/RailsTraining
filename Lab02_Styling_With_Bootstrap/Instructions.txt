@@ -111,3 +111,11 @@ partial.
 
   b. where the html had been, replace it with
      <%= render "layouts/nav" %>
+
+4. Save our local changes into git so we have a good point to rollback
+to if we break anything.
+
+   git status
+   git add fridge_door Lab02_Styling_With_Bootstrap/Instructions.txt other_files_changed
+   git commit -m 'adds bootstrap and simple_form'
+   git status
