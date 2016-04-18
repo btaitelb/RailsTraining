@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="./grid.css" >
+    
+  </head>
+  <body>
+
+    <h1>Bootstrap Grid Reference</h1>
+    <p>For the official guide, see <a href="http://v4-alpha.getbootstrap.com/layout/grid">http://v4-alpha.getbootstrap.com/layout/grid</a>.</p>
+
+    <h2>Column Classes</h2>
+    <p>Bootstrap lets us perform complex layouts simply by creating <code>&lt;div&gt;</code> elements in HTML and assigning them special classes. We can also perform the same layout in pure CSS if we want to keep our classes semantic.</p>
+
+    <p>The classes for columns are of the form <code>col-$size-$number</code>, where <code>$size</code> tells us the width of the browser, and <code>$number</code> tells us how many columns that element should take up.</p>
+
+    <p>This is all configurable, but by default <code>$size</code> is one of:
+      <ul>
+        <li><em>xs</em> - extra small phones</li>
+        <li><em>sm</em> - phones and small devices (544px width and up)</li>
+        <li><em>md</em> - tablets and medium screens (768x and up)</li>
+        <li><em>lg</em> - desktops (992x and up)</li>
+        <li><em>xl</em> - extra large desktops (1200px and up)</li>
+      </ul>
+    </p>
+
+    <p>Since it's a 12-column grid, <code>$number</code> is between 1 and 12.</p>
+    
+    <h2>Mobile First</h2>
+
+    <p>Bootstrap makes it really easy to build our sites in a <em>mobile first</em> manner. This means instead of having to worry about all different browser sizes (and phone sizes, tablet sizes, etc.) right from the start, we can instead focus on the content of our site and only target the design for the smallest of devices we want to support.</p>
+
+    <p>In practice, this means:
+      <ol>
+        <li>Only use <code>col-xs-*</code> or <code>col-sm-*</code> classes across the site and get our content and user flows working</li>
+        <li>Then test out the site on desktops. It might actually look good enough already to launch.</li>
+        <li>Add in additional content and layout for larger devices where we have more screen real-estate. Make sure this isn't content that mobile users would want/need.</li>
+      </ol>
+    </p>
+
+    <h2>Example</h2>
+    
+    <div class="container-fluid example">
+      <div class="row">
+        <div class="col-xs-1">1</div>
+        <div class="col-xs-1">2</div>
+        <div class="col-xs-1">3</div>
+        <div class="col-xs-1">4</div>
+        <div class="col-xs-1">5</div>
+        <div class="col-xs-1">6</div>
+        <div class="col-xs-1">7</div>
+        <div class="col-xs-1">8</div>
+        <div class="col-xs-1">9</div>
+        <div class="col-xs-1">10</div>
+        <div class="col-xs-1">11</div>
+        <div class="col-xs-1">12</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">.col-xs-6</div>
+        <div class="col-xs-3">.col-xs-3</div>
+        <div class="col-xs-2">.col-xs-2</div>
+        <div class="col-xs-1">.col-xs-1</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">.col-xs-6 .col-xs-offset-3</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
+        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
+        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
+        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
+      </div>
+    </div>
+    
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>

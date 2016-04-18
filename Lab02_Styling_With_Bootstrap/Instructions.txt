@@ -1,0 +1,17 @@
+Lab 02 - Styling and Layout with Bootstrap
+==========================================
+
+Pre-Lab
+-------
+
+1. Review the references from Slide 43
+2. Decide on your starting code base:
+
+   These labs build off of each other, so you can decide to keep going with your current fridge_door app, or if you ran into issues or want to start fresh, you can also start with the code inside Lab02. Just remember which codebase you're working on currently.
+
+3. 12-Column Grid & Mobile First
+
+
+Part I - Add New Dependencies
+-----------------------------
+
