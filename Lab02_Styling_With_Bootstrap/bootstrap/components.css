@@ -1,0 +1,23 @@
+body {
+  position: relative;
+}
+
+/* really just so our spyScroll is more impressive */
+.spacer {
+}
+
+/* By default, when the browser follows an anchor link
+   like #jumbotron, it tries to scroll the element with
+   that id to the top. But we want some space at the top
+   of the screen so that it's positioned nicely */
+.scrollTo {
+  padding-top: 10rem;
+}
+
+h2 {
+  padding-top: 3rem;
+}
+
+.card-columns {
+  -webkit-column-count: 3;
+}

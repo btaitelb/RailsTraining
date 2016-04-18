@@ -6,81 +6,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <title>Bootstrap v4 Components</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <link rel="stylesheet" href="./grid.css" >
-    
+    <link rel="stylesheet" href="components.css">
+
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#mainNavbar">
 
-    <h1>Bootstrap Grid Reference</h1>
-    <p>For the official guide, see <a href="http://v4-alpha.getbootstrap.com/layout/grid">http://v4-alpha.getbootstrap.com/layout/grid</a>.</p>
+    <div class="container-fluid">
 
-    <h2>Column Classes</h2>
-    <p>Bootstrap lets us perform complex layouts simply by creating <code>&lt;div&gt;</code> elements in HTML and assigning them special classes. We can also perform the same layout in pure CSS if we want to keep our classes semantic.</p>
+      <nav class="navbar navbar-fixed-top navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#mainNavbar">
+          &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-xs" id="mainNavbar">
+          <a class="navbar-brand" href="#jumbotron">Bootstrap Training</a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#nav">Nav</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#jumbotron">Jumbotron</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#buttons">Buttons</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cards">Cards</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <p>The classes for columns are of the form <code>col-$size-$number</code>, where <code>$size</code> tells us the width of the browser, and <code>$number</code> tells us how many columns that element should take up.</p>
+      <div id="nav" class="scrollTo">
+        <h1>Navigation</h1>
 
-    <p>This is all configurable, but by default <code>$size</code> is one of:
-      <ul>
-        <li><em>xs</em> - extra small phones</li>
-        <li><em>sm</em> - phones and small devices (544px width and up)</li>
-        <li><em>md</em> - tablets and medium screens (768x and up)</li>
-        <li><em>lg</em> - desktops (992x and up)</li>
-        <li><em>xl</em> - extra large desktops (1200px and up)</li>
-      </ul>
-    </p>
+        <p>The navbar at the top is a <code>navbar-fixed-top</code>, and uses <a href="http://v4-alpha.getbootstrap.com/components/scrollspy/">ScrollSpy</a> to achieve the effect of highlighting the current active section.</p>
 
-    <p>Since it's a 12-column grid, <code>$number</code> is between 1 and 12.</p>
-    
-    <h2>Mobile First</h2>
-
-    <p>Bootstrap makes it really easy to build our sites in a <em>mobile first</em> manner. This means instead of having to worry about all different browser sizes (and phone sizes, tablet sizes, etc.) right from the start, we can instead focus on the content of our site and only target the design for the smallest of devices we want to support.</p>
-
-    <p>In practice, this means:
-      <ol>
-        <li>Only use <code>col-xs-*</code> or <code>col-sm-*</code> classes across the site and get our content and user flows working</li>
-        <li>Then test out the site on desktops. It might actually look good enough already to launch.</li>
-        <li>Add in additional content and layout for larger devices where we have more screen real-estate. Make sure this isn't content that mobile users would want/need.</li>
-      </ol>
-    </p>
-
-    <h2>Example</h2>
-    
-    <div class="container-fluid example">
-      <div class="row">
-        <div class="col-xs-1">1</div>
-        <div class="col-xs-1">2</div>
-        <div class="col-xs-1">3</div>
-        <div class="col-xs-1">4</div>
-        <div class="col-xs-1">5</div>
-        <div class="col-xs-1">6</div>
-        <div class="col-xs-1">7</div>
-        <div class="col-xs-1">8</div>
-        <div class="col-xs-1">9</div>
-        <div class="col-xs-1">10</div>
-        <div class="col-xs-1">11</div>
-        <div class="col-xs-1">12</div>
+        <p>For more information on Navbars and Nav components, see the following pages:</p>
+        <ul>
+          <li><a href="http://v4-alpha.getbootstrap.com/components/navbar/#placement">Navbar Reference</a></li>
+          <li><a href="http://v4-alpha.getbootstrap.com/components/navs/">Navs Reference</a></li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="col-xs-6">.col-xs-6</div>
-        <div class="col-xs-3">.col-xs-3</div>
-        <div class="col-xs-2">.col-xs-2</div>
-        <div class="col-xs-1">.col-xs-1</div>
+
+      <div id="jumbotron" class="scrollTo">
+        <div class="jumbotron jumbotron-fluid">
+          <h1>Jumbotron</h1>
+          <p>This is an example of a jumbotron. It's most often used to present the big idea of a site on the home page, along with some useful calls to action.</p>
+
+          <p>For the official guide, see <a href="http://v4-alpha.getbootstrap.com/components/jumbotron/">http://v4-alpha.getbootstrap.com/components/jumbotron/</a>, which has several more components than are shown here.</p>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">.col-xs-6 .col-xs-offset-3</div>
+
+      <div id="buttons" class="scrollTo">
+        <h1>Buttons</h1>
+        <p>Buttons in bootstrap are incredibly versatile. See <a href="http://v4-alpha.getbootstrap.com/components/buttons/">buttons reference</a> for more information, but here are a few examples.</p>
+
+        <h2>Default Styles</h2>
+        <div class="row">
+          <div class="col-sm-3">
+            <a class="btn btn-primary" href="#">btn-primary</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-secondary" href="#">btn-secondary</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-success" href="#">btn-success</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-info" href="#">btn-info</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <a class="btn btn-warning" href="#">btn-warning</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-danger" href="#">btn-danger</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-link" href="#">btn-link</a>
+          </div>
+        </div>
+
+        <h2>Different Sizes</h2>
+        <div class="row">
+          <div class="col-sm-4">
+            <a class="btn btn-primary btn-sm">btn-sm</a>
+          </div>
+          <div class="col-sm-4">
+            <a class="btn btn-primary btn-md">btn-md</a>
+          </div>
+          <div class="col-sm-4">
+            <a class="btn btn-primary btn-lg">btn-lg</a>
+          </div>
+        </div>
+
+        <h2>Outlines</h2>
+        <div class="row">
+          <div class="col-sm-3">
+            <a class="btn btn-primary-outline" href="#">btn-primary-outline</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-secondary-outline" href="#">btn-secondary-outline</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-success-outline" href="#">btn-success-outline</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-info-outline" href="#">btn-info-outline</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <a class="btn btn-warning-outline" href="#">btn-warning-outline</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-danger-outline" href="#">btn-danger-outline</a>
+          </div>
+          <div class="col-sm-3">
+            <a class="btn btn-link-outline" href="#">btn-link-outline</a>
+          </div>
+        </div>
+
+
       </div>
-      <div class="row">
-        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
-        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
-        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
-        <div class="col-xs-6 col-md-3">.col-xs-6 .col-md-3</div>
-      </div>
-    </div>
-    
+
+
+
+      <div id="cards" class="scrollTo">
+        <div class="card-block">
+          <h1 class="card-title">Cards</h1>
+          <div class="card-block">
+            <p class="card-text">This is an example of a card. Cards replace <em>panels</em> from earlier versions of bootstrap.</p>
+            <a href="http://v4-alpha.getbootstrap.com/components/card/" class="card-link">Card Reference</a>
+            <a href="http://v4-alpha.getbootstrap.com/components/card/#columns" class="card-link">Cards Columns</a>
+          </div>
+        </div>
+
+        <div class="card-columns">
+
+          <div class="card">
+            <div class="card-block">
+              <h3 class="card-title">Columns</h3>
+              <p class="card-text">Cards can be laid out in columns for an appealing effect.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-block">
+              <h3 class="card-title">Chrome Bug</h3>
+              <p class="card-text">I ran into a bug in some chrome versions prior to 50 where they didn't support the column-count css attribute, so you may need to explicitly use <code>-webkit-column-count</code> in your css</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-block">
+              <h3 class="card-title">Column Count</h3>
+              <p class="card-text">By default, bootstrap will use 3 columns to display these cards. That's a good default, but you can override this in your css.</p>
+              <p class="card-text">For example, to have 5 columns on large screens, you can use scss like the following:
+                <pre>
+                  <code>
+.card-columns {
+  @include media-breakpoint-up(xs) {
+    -webkit-column-count: 3;
+  }
+  @include media-breakpoint-up(lg) {
+    -webkit-column-count: 5;
+    column-count: 5;
+  }
+}
+                  </code>
+                </pre>
+              </p>
+
+            </div>
+          </div>
+
+          <div class="card card-success card-inverse">
+            <div class="card-block">
+              <h3 class="card-title">Card Styles</h3>
+              <p class="card-text">This card uses the <code>card-inverse card-success</code> style.</p>
+            </div>
+          </div>
+
+        </div> <!-- end of card-columns -->
+
+      </div> <!-- end of cards section -->
+
+    </div> <!-- end of container -->
+
+
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
   </body>
 </html>

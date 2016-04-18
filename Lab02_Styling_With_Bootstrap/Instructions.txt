@@ -5,13 +5,109 @@ Pre-Lab
 -------
 
 1. Review the references from Slide 43
+
 2. Decide on your starting code base:
 
-   These labs build off of each other, so you can decide to keep going with your current fridge_door app, or if you ran into issues or want to start fresh, you can also start with the code inside Lab02. Just remember which codebase you're working on currently.
+   These labs build off of each other, so you can decide to keep going
+   with your current fridge_door app, or if you ran into issues or
+   want to start fresh, you can also start with the code inside
+   Lab02. Just remember which codebase you're working on currently.
 
-3. 12-Column Grid & Mobile First
+3. Intro to Bootstrap.
+
+- Take a look at bootstrap/grid.html and bootstrap/components.html
+- These are static html files, so you can open them up directly in a
+  browser.
+- Examine the code for these files to see how we're using bootstrap.
+  These will serve as good reference points for when we need to copy
+  and paste some bootstrap components or look class names.
 
 
 Part I - Add New Dependencies
 -----------------------------
 
+The `Gemfile` contains our app's dependencies. When we make changes to
+this file, we have to run `bundle install` to download any
+dependencies. This also updates `Gemfile.lock` with specific versions
+of what we have installed.
+
+In addition to downloading libraries (called "gems") that we'll use,
+we also have to update our app to use the newly downloaded
+libraries. In this case, we'll have to tell it to use the stylesheets
+and javascripts provided by bootstrap. We'll also want to update our
+application to use a default bootstrap layout.
+
+1. Add the bootstrap dependencies to the Gemfile
+
+  gem 'bootstrap'
+  gem 'rails-assets-tether', '>= 1.1.0'
+
+2. Grab those gems, run:
+
+  bundle install
+
+3. Rename app/assets/stylesheets/application.css to
+app/assets/stylesheets/application.scss
+
+4. Delete everything in application.scss and change its contents to:
+
+  @import "bootstrap";
+
+5. Add the following to app/assets/javascripts/application.js before
+the "require_tree" line:
+
+  //= require tether
+  //= require bootstrap
+
+
+Part II - Update our Layout
+---------------------------
+
+Now that we can use bootstrap in our app, we should take advantage of
+it. To do this, we'll update our application layout and add a navbar.
+
+6. Add the following line to the top of the "<head>" section in
+app/views/layouts/application.html.erb
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+7. Add a navbar to our layout. You can copy and paste one from the
+references we've seen previously. Don't worry about making all the
+links work, but do change the main "brand" link to "Fridge Door"
+
+8. Change the "New Note" link to be a bootstrap button. You can find
+this in app/views/notes/index.html.erb
+
+
+Extra Credit
+------------
+
+Right now, app/views/notes/index.html.erb is dynamically creating a
+table to show all our notes in. Try switching this to a bootstrap
+grid.
+
+
+Post-Lab
+--------
+
+1. Add simple_form as a dependency so that as we create new resources
+we'll have bootstrap-aware forms created for us as part of our
+scaffolds.
+
+  a. add simple_form to our Gemfile
+  b. bundle install
+  c. rails g simple_form:install --bootstrap
+
+2. Create a new resource to see how the scaffolded forms look now
+
+  rails generate todo description:text is_complete:boolean
+
+3. Clean up our layout file by moving the navigation html into a
+partial.
+
+  a. copy and paste all the navigation html from
+     app/layouts/application.html.erb into a new file
+     app/views/layouts/_nav.html.erb
+
+  b. where the html had been, replace it with
+     <%= render "layouts/nav" %>
