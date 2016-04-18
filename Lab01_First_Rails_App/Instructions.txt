@@ -1,0 +1,123 @@
+Lab 01 - Creating Your First Rails App
+======================================
+
+Pre-Lab
+-------
+
+1. Review Unix Navigation Commands.
+   (pages 7-8 in slides handout)
+
+2. What do the following commands do?
+
+cd ~
+mkdir testing
+cd testing
+touch file.txt
+ls
+cd ..
+rm -rf testing
+
+
+Part I - Create a New App
+-------------------------
+
+1. Open a terminal (command prompt) and navigate to this directory. Note that you don't have to type out the full directory name, just type Lab01 and hit the TAB key to autocomplete.
+
+  cd /c/Code/Lab01_[TAB]
+
+2. Create a new rails app called fridge_door
+
+  rails new fridge_door
+
+3. Look at the output of that last command. It created a bunch of files and then ran a command. What command did it run, and what do you think this command does?
+
+4. Go into the newly created directory. What files and directories were created for you?
+
+  cd fridge_door
+  ls
+
+5. Create the initial database
+
+  rake db:create
+
+6. Launch the rails app
+
+  rails server
+
+7. It might take 20 seconds for the rails server to load up on this windows virtual machine, so wait until you see output like:
+
+=> Booting WEBrick
+=> Rails 4.2.5.1 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+[2016-04-17 23:07:13] INFO  WEBrick 1.3.1
+[2016-04-17 23:07:13] INFO  ruby 2.2.4 (2015-12-16) [i386-mingw32]
+[2016-04-17 23:07:13] INFO  WEBrick::HTTPServer#start: pid=4856 port=3000
+
+
+8. Open up a browser and go to http://localhost:3000 to see your site.
+
+Congrats! You just built your first rails app!
+Now let's make it actually do something...
+
+
+Part II - Scaffold a Note resource
+----------------------------------
+
+9. Stop the rails server by typing Ctrl+C
+   Note: you can also leave this running and open up another terminal window. Just be sure to navigate to the same rails app (in c:\Code\Lab01_First_Rails_App/fridge_door)
+
+10. Let rails generate all the files we need to represent a simple Note. Notes will have a title and a body. The title will be a short string (255 characters or less), while the body will be text of an arbitrary length.
+
+  rails generate scaffold note title:string body:text
+
+11. What files did that create?
+
+12. Since it created a database migration, we need to update our dateabse
+
+  rake db:migrate
+
+13. Launch the rails server
+
+ (hint: you did this previously in step 6)
+
+14. Navigate to http://localhost:3000/notes
+
+15. Create your first note with the following fields
+
+  Title: your name
+  Body:  3 sentences:
+           1. What's your favorite website?
+           2. What's your favorite computer program?
+           3. What are you hoping to get out of this course?
+
+16. Let the instructor know you're done.
+
+17. See if you can help any of your neighbors.
+
+
+Extra Credit
+------------
+
+18. Make the notes show up when you visit the root path of http://localhost:3000
+ - see the comments in config/routes.rb to see if you can figure out to do this.
+
+19. Create a new rails app to practice what you just learned. How about an app named "blog" that has a resource named "post"?
+
+
+Post-Lab
+--------
+
+* Introduce ourselves to the class by sharing our notes.
+* Save what we did as a check point
+
+  # see what changes we've made
+  git status
+
+  # add everything we want to commit
+  git add fridge_door Instructions.txt
+
+  # commit our changes to the local git database
+  git commit -m 'Finishes Lab01'
+
+
