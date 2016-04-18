@@ -21,9 +21,9 @@ rm -rf testing
 Part I - Create a New App
 -------------------------
 
-1. Open a terminal (command prompt) and navigate to this directory. Note that you don't have to type out the full directory name, just type Lab01 and hit the TAB key to autocomplete.
+1. Open a terminal (command prompt) and navigate to where you want to create the rails app. Pro tip: you can use [TAB] to autocomplete directory and file names.
 
-  cd /c/Code/Lab01_[TAB]
+  cd /c/Code
 
 2. Create a new rails app called fridge_door
 
@@ -65,7 +65,7 @@ Part II - Scaffold a Note resource
 ----------------------------------
 
 9. Stop the rails server by typing Ctrl+C
-   Note: you can also leave this running and open up another terminal window. Just be sure to navigate to the same rails app (in c:\Code\Lab01_First_Rails_App/fridge_door)
+   Note: you can also leave this running and open up another terminal window. Just be sure to navigate to the same fridge_door directory you previously created.
 
 10. Let rails generate all the files we need to represent a simple Note. Notes will have a title and a body. The title will be a short string (255 characters or less), while the body will be text of an arbitrary length.
 
@@ -115,7 +115,7 @@ Post-Lab
   git status
 
   # add everything we want to commit
-  git add fridge_door Instructions.txt
+  git add fridge_door
 
   # commit our changes to the local git database
   git commit -m 'Finishes Lab01'
