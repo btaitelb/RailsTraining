@@ -4,7 +4,7 @@ require 'json'
 
 class WeatherService
   def initialize(zip="72712", debug=true)
-    @key = "f11d43fc13ef60a6bd0ab099c224155d"
+    @key = "<get from instructor>"
     @zip = zip
     @debug = debug
   end
