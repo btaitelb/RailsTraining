@@ -1,0 +1,60 @@
+Lab 4 - Tests & Weather
+=======================
+
+In this lab, we're going to explore testing in rails, and then we'll
+integrate the weather service we built in ruby.
+
+Pre-Lab
+-------
+
+* Slides 67-75
+
+
+Part I - Tests & Validations
+----------------------------
+
+1. Add a test (or two) that asserts that Todo items are only valid if
+their descriptions are at least 5 characters long.
+2. Make the tests all pass by the necessary validation.
+3. Add a field username to the todo items
+
+   rails g migration add_username_to_todo username:string
+
+4. Add a test that ensures that a todo is only valid if a username is present
+5. Add a validation to make the test pass
+6. Add a controller test to ensure that our username is being set when
+we create a Todo
+7. Fix the controller so that this test passes
+
+
+
+Part II - Weather
+-----------------
+
+1. Copy weather.rb and weather_service.rb to fridge_door/lib
+
+  (if you're using the provided Lab04 directory, these have already
+  been copied for you)
+
+2. Update config/application.rb to tell rails to autoload files from
+the lib directory.
+
+  config.autoload_paths << Rails.root.join('lib')
+
+3. Create a Weather ActiveRecord model (hint: rails g scaffold)
+
+  - If calling it weathers is awkward, update
+    config/initializers/inflections.rb
+
+4. Add weather to the navigation bar
+
+5. Practice adding a weather object manually
+
+6. Update the controller for weather so that when you go to add a new
+weather, its fields are pre-set from the weather service.
+
+Post-Lab
+--------
+
+- What's the average temperature in our database?
+
