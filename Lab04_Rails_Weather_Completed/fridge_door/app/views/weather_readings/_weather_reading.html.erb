@@ -1,0 +1,8 @@
+<div class="card card-block weather">
+  <h4 class="card-title"><%= weather_icon(weather_reading) %> <%= weather_reading.description %></h4>
+  <p class="card-text"><%= weather_text(weather_reading) %> <%= time_ago_in_words(weather_reading.created_at) %> ago</p>
+  <p class="card-links">
+    <%= link_to "Edit", edit_weather_reading_path(weather_reading), class: "card-link btn btn-secondary-outline" %>
+    <%= link_to "Delete", weather_reading_path(weather_reading), method: :delete, class: "card-link btn btn-danger-outline" %>
+  </p>
+</div>

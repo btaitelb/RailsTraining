@@ -1,0 +1,6 @@
+<% if @weather.present? %>
+  <%= link_to weather_readings_path do %>
+    <%= weather_icon %>
+    <%= weather_text %>
+  <% end %>
+<% end %>

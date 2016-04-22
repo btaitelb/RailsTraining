@@ -1,0 +1,8 @@
+<div class="card card-block note">
+  <h4 class="card-title"><%= note.title %></h4>
+  <p class="card-text"><%= note.body %></p>
+  <p class="card-links">
+    <%= link_to "Edit", edit_note_path(note), class: "card-link btn btn-secondary-outline" %>
+    <%= link_to "Delete", note_path(note), method: :delete, class: "card-link btn btn-danger-outline" %>
+  </p>
+</div>

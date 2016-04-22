@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @weather_reading.temperature %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @weather_reading.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @weather_reading.description %>
+</p>
+
+<p>
+  <strong>Icon url:</strong>
+  <%= @weather_reading.icon_url %>
+</p>
+
+<%= link_to 'Edit', edit_weather_reading_path(@weather_reading) %> |
+<%= link_to 'Back', weather_readings_path %>

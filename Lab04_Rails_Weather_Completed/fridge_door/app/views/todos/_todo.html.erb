@@ -1,0 +1,10 @@
+<div class="card card-block todo">
+  <h4 class="card-title"><%= todo.description %></h4>
+  <p class="card-text">
+    <%= complete_button(todo) %>
+  </p>
+  <p class="card-links">
+    <%= link_to "Edit", edit_todo_path(todo), class: "card-link btn btn-secondary-outline" %>
+    <%= link_to "Delete", todo_path(todo), method: :delete, class: "card-link btn btn-danger-outline" %>
+  </p>
+</div>

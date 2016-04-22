@@ -1,0 +1,15 @@
+default: &default
+  debug: false
+  api_key: <get from www.openweathermap.com/api>
+  zip: 72712  
+
+development:
+  <<: *default
+  
+test:
+  <<: *default
+  debug: true
+
+production:
+  <<: *default
+  
