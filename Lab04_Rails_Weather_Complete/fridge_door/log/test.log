@@ -1,0 +1,888 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:22:43', '2016-04-20 14:22:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:22:43', '2016-04-20 14:22:43', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:22:43', '2016-04-20 14:22:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:22:43', '2016-04-20 14:22:43', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:22:43', '2016-04-20 14:22:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:22:43', '2016-04-20 14:22:43', 298486374)[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+NotesControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (156.2ms)
+  Rendered notes/new.html.erb within layouts/application (234.4ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 13312ms (Views: 13313.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+NotesControllerTest: test_should_destroy_note
+---------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes"[0m
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 62ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_create_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+Processing by NotesController#create as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "MyString"], ["body", "MyText"], ["created_at", "2016-04-20 14:22:57.289320"], ["updated_at", "2016-04-20 14:22:57.289320"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes/980190963
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (15.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+NotesControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/_form.html.erb (15.6ms)
+  Rendered notes/edit.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_show_note
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_update_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (15.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 78ms (Views: 78.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (328.1ms)
+  Rendered users/new.html.erb within layouts/application (359.4ms)
+  Rendered layouts/_nav.html.erb (15.6ms)
+Completed 200 OK in 422ms (Views: 408.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/users/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered users/_form.html.erb (0.0ms)
+  Rendered users/edit.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (15.6ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MyString"], ["created_at", "2016-04-20 14:22:57.992447"], ["updated_at", "2016-04-20 14:22:57.992447"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users/980190963
+Completed 302 Found in 16ms (ActiveRecord: 15.6ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered users/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+TodosControllerTest: test_should_create_todo
+--------------------------------------------
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (15.6ms)[0m  [1mSELECT COUNT(*) FROM "todos"[0m
+Processing by TodosController#create as HTML
+  Parameters: {"todo"=>{"description"=>"MyText", "is_complete"=>false, "user_id"=>nil}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "MyText"], ["is_complete", "f"], ["created_at", "2016-04-20 14:22:58.086200"], ["updated_at", "2016-04-20 14:22:58.086200"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/todos/980190963
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "todos"[0m
+  [1m[35m (15.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+TodosControllerTest: test_should_update_todo
+--------------------------------------------
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by TodosController#update as HTML
+  Parameters: {"todo"=>{"description"=>"MyText", "is_complete"=>false, "user_id"=>nil}, "id"=>"980190962"}
+  [1m[36mTodo Load (0.0ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/todos/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+TodosControllerTest: test_should_show_todo
+------------------------------------------
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mTodo Load (0.0ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered todos/show.html.erb within layouts/application (93.7ms)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+TodosControllerTest: test_should_destroy_todo
+---------------------------------------------
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "todos"[0m
+Processing by TodosController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (15.6ms)[0m  DELETE FROM "todos" WHERE "todos"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/todos
+Completed 302 Found in 16ms (ActiveRecord: 15.6ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "todos"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+TodosControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36mTodo Load (0.0ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by TodosController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  Rendered todos/_form.html.erb (46.9ms)
+  Rendered todos/new.html.erb within layouts/application (78.1ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 141ms (Views: 129.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+TodosControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mTodo Load (0.0ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (15.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered todos/_form.html.erb (15.6ms)
+  Rendered todos/edit.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 29.0ms | ActiveRecord: 15.6ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+TodosControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mTodo Load (0.0ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.0ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (31.2ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:42:08', '2016-04-20 14:42:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:42:08', '2016-04-20 14:42:08', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:42:08', '2016-04-20 14:42:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:42:08', '2016-04-20 14:42:08', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:42:08', '2016-04-20 14:42:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:42:08', '2016-04-20 14:42:08', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+NotesControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (62.5ms)
+  Rendered notes/new.html.erb within layouts/application (109.4ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 828ms (Views: 826.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+NotesControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered notes/_form.html.erb (0.0ms)
+  Rendered notes/edit.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+NotesControllerTest: test_should_create_note
+--------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#create as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "MyString"], ["body", "MyText"], ["created_at", "2016-04-20 14:42:10.013970"], ["updated_at", "2016-04-20 14:42:10.013970"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190963
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+NotesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.0ms)[0m  SELECT "notes".* FROM "notes"
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+NotesControllerTest: test_should_destroy_note
+---------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_show_note
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_update_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:44:33', '2016-04-20 14:44:33', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:44:33', '2016-04-20 14:44:33', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:44:33', '2016-04-20 14:44:33', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:44:33', '2016-04-20 14:44:33', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:44:33', '2016-04-20 14:44:33', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:44:33', '2016-04-20 14:44:33', 298486374)[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+NotesControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (62.5ms)
+  Rendered notes/new.html.erb within layouts/application (109.3ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 828ms (Views: 820.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+NotesControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered notes/_form.html.erb (0.0ms)
+  Rendered notes/edit.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+NotesControllerTest: test_should_create_note
+--------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#create as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "MyString"], ["body", "MyText"], ["created_at", "2016-04-20 14:44:34.855795"], ["updated_at", "2016-04-20 14:44:34.855795"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190963
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+NotesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.0ms)[0m  SELECT "notes".* FROM "notes"
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+NotesControllerTest: test_should_destroy_note
+---------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (15.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_show_note
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 47ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_update_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"MyText", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (15.6ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:48:51', '2016-04-20 14:48:51', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:48:51', '2016-04-20 14:48:51', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:48:51', '2016-04-20 14:48:51', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:48:51', '2016-04-20 14:48:51', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:48:51', '2016-04-20 14:48:51', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:48:51', '2016-04-20 14:48:51', 298486374)[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+NotesControllerTest: test_get_index_should_assign_note
+------------------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes"[0m
+  Rendered notes/index.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_nav.html.erb (15.6ms)
+Completed 200 OK in 766ms (Views: 751.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:49:48', '2016-04-20 14:49:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:49:48', '2016-04-20 14:49:48', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:49:48', '2016-04-20 14:49:48', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:49:48', '2016-04-20 14:49:48', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:49:48', '2016-04-20 14:49:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:49:48', '2016-04-20 14:49:48', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+NotesControllerTest: test_get_index_should_assign_note
+------------------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes"[0m
+  Rendered notes/index.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 719ms (Views: 727.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 14:55:23', '2016-04-20 14:55:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:55:23', '2016-04-20 14:55:23', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:55:23', '2016-04-20 14:55:23', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:55:23', '2016-04-20 14:55:23', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:55:23', '2016-04-20 14:55:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:55:23', '2016-04-20 14:55:23', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_show_note
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 703ms (Views: 707.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NotesControllerTest: test_show_note_shows_body
+----------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 0ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+NotesControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (62.5ms)
+  Rendered notes/new.html.erb within layouts/application (93.7ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 125ms (Views: 127.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+NotesControllerTest: test_should_create_note
+--------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#create as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "MyString"], ["body", "Note 1 Body"], ["created_at", "2016-04-20 14:55:24.647696"], ["updated_at", "2016-04-20 14:55:24.647696"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190963
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+  [1m[36m (15.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+NotesControllerTest: test_should_destroy_note
+---------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (15.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+NotesControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/_form.html.erb (0.0ms)
+  Rendered notes/edit.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_update_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes"[0m
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (15.6ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+NotesControllerTest: test_get_index_should_assign_note
+------------------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT "notes".* FROM "notes"[0m
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 0ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 14:55:56', '2016-04-20 14:55:56', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:55:56', '2016-04-20 14:55:56', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:55:56', '2016-04-20 14:55:56', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:55:56', '2016-04-20 14:55:56', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:55:56', '2016-04-20 14:55:56', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:55:56', '2016-04-20 14:55:56', 298486374)[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NotesControllerTest: test_should_update_note
+--------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 31ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NotesControllerTest: test_should_show_note
+------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 734ms (Views: 730.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NotesControllerTest: test_show_note_shows_body
+----------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 0ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+NotesControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (62.5ms)
+  Rendered notes/new.html.erb within layouts/application (78.1ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 109ms (Views: 115.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+NotesControllerTest: test_should_create_note
+--------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#create as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "MyString"], ["body", "Note 1 Body"], ["created_at", "2016-04-20 14:55:57.999031"], ["updated_at", "2016-04-20 14:55:57.999031"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190963
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+NotesControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mNote Load (15.6ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.0ms)[0m  SELECT "notes".* FROM "notes"
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------
+NotesControllerTest: test_get_index_should_assign_note
+------------------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.0ms)[0m  SELECT "notes".* FROM "notes"
+  Rendered notes/index.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 16ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+NotesControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered notes/_form.html.erb (0.0ms)
+  Rendered notes/edit.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+NotesControllerTest: test_should_destroy_note
+---------------------------------------------
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "notes"
+Processing by NotesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/notes
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "notes"[0m
+  [1m[35m (15.6ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 14:56:53', '2016-04-20 14:56:53', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:56:53', '2016-04-20 14:56:53', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:56:53', '2016-04-20 14:56:53', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:56:53', '2016-04-20 14:56:53', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:56:53', '2016-04-20 14:56:53', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:56:53', '2016-04-20 14:56:53', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NotesControllerTest: test_show_note_shows_body
+----------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 734ms (Views: 716.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (15.6ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 14:58:31', '2016-04-20 14:58:31', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 14:58:31', '2016-04-20 14:58:31', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:58:31', '2016-04-20 14:58:31', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 14:58:31', '2016-04-20 14:58:31', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:58:31', '2016-04-20 14:58:31', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 14:58:31', '2016-04-20 14:58:31', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NotesControllerTest: test_show_note_shows_body
+----------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered notes/show.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_nav.html.erb (0.0ms)
+Completed 200 OK in 750ms (Views: 746.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 15:14:04', '2016-04-20 15:14:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 15:14:04', '2016-04-20 15:14:04', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 15:14:04', '2016-04-20 15:14:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 15:14:04', '2016-04-20 15:14:04', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 15:14:04', '2016-04-20 15:14:04', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 15:14:04', '2016-04-20 15:14:04', 298486374)[0m
+  [1m[35m (15.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+NotesControllerTest: test_should_error_on_GET_update
+----------------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "notes"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'Note 1 Body', '2016-04-20 15:16:36', '2016-04-20 15:16:36', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "notes" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2016-04-20 15:16:36', '2016-04-20 15:16:36', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "todos"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 15:16:36', '2016-04-20 15:16:36', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "todos" ("description", "is_complete", "user_id", "created_at", "updated_at", "id") VALUES ('MyText', 'f', NULL, '2016-04-20 15:16:36', '2016-04-20 15:16:36', 298486374)
+  [1m[36mFixture Delete (15.6ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 15:16:36', '2016-04-20 15:16:36', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2016-04-20 15:16:36', '2016-04-20 15:16:36', 298486374)[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+NotesControllerTest: test_should_error_on_GET_update
+----------------------------------------------------
+  [1m[35mNote Load (0.0ms)[0m  SELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NotesController#update as HTML
+  Parameters: {"note"=>{"body"=>"Note 1 Body", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNote Load (0.0ms)[0m  [1mSELECT  "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/notes/980190962
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
